@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "root-cause-analysis-ai"
+version = "0.1.0"
+description = "A FastAPI service for IT root cause analysis using Groq LLM and semantic retrieval."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [ { name = "UniqCentro007" } ]
+dependencies = [
+  "fastapi",
+  "uvicorn",
+  "sqlalchemy",
+  "psycopg2-binary",
+  "pydantic",
+  "python-dotenv",
+  "groq",
+  "faiss-cpu",
+  "sentence-transformers"
+]
+
+[project.scripts]
+rca-server = "run:main"
+
+[tool.setuptools]
+package-dir = {"" = "app"}
+
+[tool.setuptools.packages.find]
+where = ["app"]
+include = ["*"]
